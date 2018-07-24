@@ -20,6 +20,7 @@
 		3308A2F71F8320B900A72E25 /* GCDWebServerErrorResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2E81F8320B900A72E25 /* GCDWebServerErrorResponse.m */; };
 		3308A2F81F8320B900A72E25 /* GCDWebServerFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2EA1F8320B900A72E25 /* GCDWebServerFileResponse.m */; };
 		3308A2F91F8320B900A72E25 /* GCDWebServerStreamedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3308A2EC1F8320B900A72E25 /* GCDWebServerStreamedResponse.m */; };
+		780F28C8210744A9007AD776 /* FPStaticServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F28C7210744A9007AD776 /* FPStaticServer.swift */; };
 		B3E7B58A1CC2AC0600A0062D /* FPStaticServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* FPStaticServer.m */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,31 @@
 		3308A2EA1F8320B900A72E25 /* GCDWebServerFileResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileResponse.m; sourceTree = "<group>"; };
 		3308A2EB1F8320B900A72E25 /* GCDWebServerStreamedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDWebServerStreamedResponse.h; sourceTree = "<group>"; };
 		3308A2EC1F8320B900A72E25 /* GCDWebServerStreamedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerStreamedResponse.m; sourceTree = "<group>"; };
+		780F28C6210744A8007AD776 /* FPStaticServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FPStaticServer-Bridging-Header.h"; sourceTree = "<group>"; };
+		780F28C7210744A9007AD776 /* FPStaticServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPStaticServer.swift; sourceTree = "<group>"; };
+		78EE9FB521076DE8005173C4 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		78EE9FB621076DE8005173C4 /* Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haneke.swift; sourceTree = "<group>"; };
+		78EE9FB721076DE8005173C4 /* String+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FB821076DE8005173C4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		78EE9FB921076DE8005173C4 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		78EE9FBA21076DE8005173C4 /* CryptoSwiftMD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoSwiftMD5.swift; sourceTree = "<group>"; };
+		78EE9FBB21076DE8005173C4 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
+		78EE9FBC21076DE8005173C4 /* NSURLResponse+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURLResponse+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FBD21076DE8005173C4 /* Haneke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Haneke.h; sourceTree = "<group>"; };
+		78EE9FBE21076DE8005173C4 /* UIView+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FBF21076DE8005173C4 /* NSHTTPURLResponse+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSHTTPURLResponse+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FC021076DE8005173C4 /* NetworkFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetcher.swift; sourceTree = "<group>"; };
+		78EE9FC121076DE8005173C4 /* CGSize+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Swift.swift"; sourceTree = "<group>"; };
+		78EE9FC221076DE8005173C4 /* UIImage+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FC321076DE8005173C4 /* Fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetch.swift; sourceTree = "<group>"; };
+		78EE9FC421076DE8005173C4 /* DiskFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskFetcher.swift; sourceTree = "<group>"; };
+		78EE9FC521076DE8005173C4 /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
+		78EE9FC621076DE8005173C4 /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
+		78EE9FC721076DE8005173C4 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		78EE9FC821076DE8005173C4 /* UIImageView+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FC921076DE8005173C4 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		78EE9FCA21076DE8005173C4 /* UIButton+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Haneke.swift"; sourceTree = "<group>"; };
+		78EE9FCB21076DE8005173C4 /* NSFileManager+Haneke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileManager+Haneke.swift"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* FPStaticServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPStaticServer.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* FPStaticServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPStaticServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,11 +176,44 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				78EE9FB421076DE8005173C4 /* Haneke */,
 				3308A2CD1F8320B900A72E25 /* GCDWebServer */,
 				B3E7B5881CC2AC0600A0062D /* FPStaticServer.h */,
+				780F28C7210744A9007AD776 /* FPStaticServer.swift */,
 				B3E7B5891CC2AC0600A0062D /* FPStaticServer.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				780F28C6210744A8007AD776 /* FPStaticServer-Bridging-Header.h */,
 			);
+			sourceTree = "<group>";
+		};
+		78EE9FB421076DE8005173C4 /* Haneke */ = {
+			isa = PBXGroup;
+			children = (
+				78EE9FB521076DE8005173C4 /* Format.swift */,
+				78EE9FB621076DE8005173C4 /* Haneke.swift */,
+				78EE9FB721076DE8005173C4 /* String+Haneke.swift */,
+				78EE9FB821076DE8005173C4 /* Log.swift */,
+				78EE9FB921076DE8005173C4 /* Data.swift */,
+				78EE9FBA21076DE8005173C4 /* CryptoSwiftMD5.swift */,
+				78EE9FBB21076DE8005173C4 /* Info-iOS.plist */,
+				78EE9FBC21076DE8005173C4 /* NSURLResponse+Haneke.swift */,
+				78EE9FBD21076DE8005173C4 /* Haneke.h */,
+				78EE9FBE21076DE8005173C4 /* UIView+Haneke.swift */,
+				78EE9FBF21076DE8005173C4 /* NSHTTPURLResponse+Haneke.swift */,
+				78EE9FC021076DE8005173C4 /* NetworkFetcher.swift */,
+				78EE9FC121076DE8005173C4 /* CGSize+Swift.swift */,
+				78EE9FC221076DE8005173C4 /* UIImage+Haneke.swift */,
+				78EE9FC321076DE8005173C4 /* Fetch.swift */,
+				78EE9FC421076DE8005173C4 /* DiskFetcher.swift */,
+				78EE9FC521076DE8005173C4 /* DiskCache.swift */,
+				78EE9FC621076DE8005173C4 /* Info-tvOS.plist */,
+				78EE9FC721076DE8005173C4 /* Cache.swift */,
+				78EE9FC821076DE8005173C4 /* UIImageView+Haneke.swift */,
+				78EE9FC921076DE8005173C4 /* Fetcher.swift */,
+				78EE9FCA21076DE8005173C4 /* UIButton+Haneke.swift */,
+				78EE9FCB21076DE8005173C4 /* NSFileManager+Haneke.swift */,
+			);
+			path = Haneke;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +247,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -224,6 +284,7 @@
 				3308A2F71F8320B900A72E25 /* GCDWebServerErrorResponse.m in Sources */,
 				3308A2F31F8320B900A72E25 /* GCDWebServerFileRequest.m in Sources */,
 				3308A2EF1F8320B900A72E25 /* GCDWebServerFunctions.m in Sources */,
+				780F28C8210744A9007AD776 /* FPStaticServer.swift in Sources */,
 				3308A2EE1F8320B900A72E25 /* GCDWebServerConnection.m in Sources */,
 				3308A2F21F8320B900A72E25 /* GCDWebServerDataRequest.m in Sources */,
 				3308A2F81F8320B900A72E25 /* GCDWebServerFileResponse.m in Sources */,
@@ -316,6 +377,7 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -325,6 +387,7 @@
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
 					"$(SDKROOT)/usr/include/libxml2",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -332,12 +395,16 @@
 				);
 				PRODUCT_NAME = FPStaticServer;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FPStaticServer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -347,6 +414,7 @@
 					"$(SRCROOT)/../../node_modules/react-native/React/**",
 					"$(SDKROOT)/usr/include/libxml2",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -354,6 +422,8 @@
 				);
 				PRODUCT_NAME = FPStaticServer;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FPStaticServer-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
