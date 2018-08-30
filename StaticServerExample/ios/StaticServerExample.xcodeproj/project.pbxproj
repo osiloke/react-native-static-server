@@ -1331,6 +1331,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = S9PLTSRA52;
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/osilokeemoekpere/workspace/misc/react-native-static-server/ios/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
@@ -1361,6 +1365,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S9PLTSRA52;
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/osilokeemoekpere/workspace/misc/react-native-static-server/ios/Frameworks",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",

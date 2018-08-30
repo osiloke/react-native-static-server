@@ -7,21 +7,23 @@
 //
 
 import Foundation
+import Proxy
 
 @objc(FPStaticServer)
 class FPStaticServer: NSObject {
     // MARK: Properties
+    var hlsproxy : ProxyHLSProxy!
     var webserver: GCDWebServer!
     var www_root = ""
     var keep_alive = false
     var localhost_only = false
     var port: NSNumber?
     var url: String?
+    var hlsCache = Shared.dataCache
     
     // MARK:
     deinit {
         // perform the deinitialization
-//        NotificationCenter.default.removeObserver(webserver)
         if (webserver.isRunning){
             webserver.stop()
         }
@@ -29,6 +31,7 @@ class FPStaticServer: NSObject {
     
     override init() {
        webserver = GCDWebServer()
+        hlsproxy = ProxyNewHLSProxy()
     }
     
     @objc var bridge: RCTBridge?
@@ -59,6 +62,7 @@ class FPStaticServer: NSObject {
         } else {
             self.port = -1
         }
+        print(www_root)
         self.keep_alive = keepAlive
         self.localhost_only = localOnly
         if webserver.isRunning != false {            
@@ -67,8 +71,28 @@ class FPStaticServer: NSObject {
             return
         }
         webserver.addGETHandler(forBasePath: "/", directoryPath: self.www_root, indexFilename: "index.html", cacheAge: 3600, allowRangeRequests: true)
-        
-        
+        webserver.addHandler(forMethod: "GET", path: "/cache", request: GCDWebServerRequest.self) { (request) -> GCDWebServerResponse? in
+            let fileURL = try? request.query?["file"] as! String
+            let result = self.hlsproxy.has(fileURL)
+            if (result?.ok())!{
+                let key = result?.key() as! String
+                let url = (URL.init(string:self.url!)?.appendingPathComponent(key))!
+                var contentType = "application/octet-stream"
+                if (fileURL?.hasSuffix("m3u8"))!{
+                    contentType = "application/vnd.apple.mpegurl"
+                }
+                if (fileURL?.hasSuffix("ts"))!{
+                    contentType = "video/MP2T"
+                }
+                
+                let filepath = "\(self.www_root)/\(key)"
+                
+//                print(filepath)
+                let data = NSData(contentsOfFile: filepath)!
+                return GCDWebServerDataResponse(data: data as Data, contentType: contentType)
+            }
+            return GCDWebServerDataResponse(statusCode: 400)
+        }
         var options: [AnyHashable : Any] = [:]
         print("Started StaticServer on port \(port)")
         if !(self.port == -1) {
@@ -91,6 +115,8 @@ class FPStaticServer: NSObject {
         } else {
             self.url = String((webserver.serverURL?.absoluteString.dropLast())!)
             NSLog("Started StaticServer at URL \(String(describing: self.url))")
+            self.hlsproxy.setup(self.url, cachePath: www_root)
+//            self.hlsproxy.clear()
             resolve(self.url)
         }
     }

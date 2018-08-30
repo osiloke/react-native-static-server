@@ -9,3 +9,4 @@
 #import <React/RCTEventEmitter.h>
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
+#import "GCDWebServerStreamedResponse.h"
