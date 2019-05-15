@@ -15,7 +15,7 @@ class FPStaticServer: NSObject {
     var hlsproxy : ProxyHLSProxy!
     var webserver: GCDWebServer!
     var www_root = ""
-    var keep_alive = false
+    var keep_alive = true
     var localhost_only = false
     var port: NSNumber?
     var url: String?
@@ -31,6 +31,7 @@ class FPStaticServer: NSObject {
     
     override init() {
        webserver = GCDWebServer()
+        GCDWebServer.setLogLevel(0)
         hlsproxy = ProxyNewHLSProxy()
     }
     
@@ -62,35 +63,37 @@ class FPStaticServer: NSObject {
         } else {
             self.port = -1
         }
-        print(www_root)
-        self.keep_alive = keepAlive
+        
+//        self.keep_alive = keepAlive
         self.localhost_only = localOnly
         if webserver.isRunning != false {            
             print("StaticServer already running at \(self.url ?? "")")
             resolve(self.url)
             return
         }
-        webserver.addGETHandler(forBasePath: "/", directoryPath: self.www_root, indexFilename: "index.html", cacheAge: 3600, allowRangeRequests: true)
+        webserver.addGETHandler(forBasePath: "/", directoryPath: self.www_root, indexFilename: "index.html", cacheAge: 0, allowRangeRequests: true)
         webserver.addHandler(forMethod: "GET", path: "/cache", request: GCDWebServerRequest.self) { (request) -> GCDWebServerResponse? in
             let fileURL = try? request.query?["file"] as! String
-            let result = self.hlsproxy.has(fileURL)
+            //let rnd = try? request.query?["rnd"] as! String
+            let result = self.hlsproxy.has(fileURL)//"\(fileURL)&rnd=\(rnd)")
             if (result?.ok())!{
                 let key = result?.key() as! String
-                let url = (URL.init(string:self.url!)?.appendingPathComponent(key))!
+//                let url = (URL.init(string:self.url!)?.appendingPathComponent(key))!
                 var contentType = "application/octet-stream"
-                if (fileURL?.hasSuffix("m3u8"))!{
+                if (fileURL?.range(of:"m3u8") != nil){
                     contentType = "application/vnd.apple.mpegurl"
                 }
-                if (fileURL?.hasSuffix("ts"))!{
+                if (fileURL?.range(of:"ts") != nil){
                     contentType = "video/MP2T"
                 }
                 
                 let filepath = "\(self.www_root)/\(key)"
                 
-//                print(filepath)
+                print("serving", filepath)
                 let data = NSData(contentsOfFile: filepath)!
                 return GCDWebServerDataResponse(data: data as Data, contentType: contentType)
             }
+            print("hasData", result?.data(), "hasError", result?.error())
             return GCDWebServerDataResponse(statusCode: 400)
         }
         var options: [AnyHashable : Any] = [:]
