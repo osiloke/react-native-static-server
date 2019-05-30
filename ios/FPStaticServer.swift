@@ -19,7 +19,7 @@ class FPStaticServer: NSObject {
     var localhost_only = false
     var port: NSNumber?
     var url: String?
-    var hlsCache = Shared.dataCache
+//    var hlsCache = Shared.dataCache
     
     // MARK:
     deinit {
@@ -96,7 +96,7 @@ class FPStaticServer: NSObject {
             print("hasData", result?.data(), "hasError", result?.error())
             return GCDWebServerDataResponse(statusCode: 400)
         }
-        var options: [AnyHashable : Any] = [:]
+        var options: [String : Any] = [:]
         print("Started StaticServer on port \(port)")
         if !(self.port == -1) {
             options[GCDWebServerOption_Port] = NSNumber(value: Int64(port)!)
