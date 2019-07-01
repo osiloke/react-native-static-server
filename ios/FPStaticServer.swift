@@ -7,19 +7,18 @@
 //
 
 import Foundation
-import Proxy
+import Rntools
 
 @objc(FPStaticServer)
 class FPStaticServer: NSObject {
     // MARK: Properties
-    var hlsproxy : ProxyHLSProxy!
+    var hlsproxy : RntoolsHLSProxy!
     var webserver: GCDWebServer!
     var www_root = ""
     var keep_alive = true
     var localhost_only = false
     var port: NSNumber?
     var url: String?
-//    var hlsCache = Shared.dataCache
     
     // MARK:
     deinit {
@@ -30,9 +29,9 @@ class FPStaticServer: NSObject {
     }
     
     override init() {
-       webserver = GCDWebServer()
+        webserver = GCDWebServer()
         GCDWebServer.setLogLevel(0)
-        hlsproxy = ProxyNewHLSProxy()
+        hlsproxy = RntoolsNewHLSProxy()
     }
     
     @objc var bridge: RCTBridge?
@@ -74,11 +73,10 @@ class FPStaticServer: NSObject {
         webserver.addGETHandler(forBasePath: "/", directoryPath: self.www_root, indexFilename: "index.html", cacheAge: 0, allowRangeRequests: true)
         webserver.addHandler(forMethod: "GET", path: "/cache", request: GCDWebServerRequest.self) { (request) -> GCDWebServerResponse? in
             let fileURL = try? request.query?["file"] as! String
-            //let rnd = try? request.query?["rnd"] as! String
-            let result = self.hlsproxy.has(fileURL)//"\(fileURL)&rnd=\(rnd)")
+           
+            let result = self.hlsproxy.has(fileURL)
             if (result?.ok())!{
                 let key = result?.key() as! String
-//                let url = (URL.init(string:self.url!)?.appendingPathComponent(key))!
                 var contentType = "application/octet-stream"
                 if (fileURL?.range(of:"m3u8") != nil){
                     contentType = "application/vnd.apple.mpegurl"
