@@ -1,5 +1,6 @@
 {
   "name": "react-native-static-server",
+  "homepage": "https://github.com/osiloke/react-native-static-server",
   "version": "0.3.0",
   "repository": "https://github.com/futurepress/react-native-static-server",
   "description": "HTTP static file server for React Native",
