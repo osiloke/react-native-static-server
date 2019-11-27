@@ -78,10 +78,10 @@ class FPStaticServer: NSObject {
             if (result?.ok())!{
                 let key = result?.key() as! String
                 var contentType = "application/octet-stream"
-                if (fileURL?.range(of:"m3u8") != nil){
+                if (fileURL?.range(of:".m3u8") != nil){
                     contentType = "application/vnd.apple.mpegurl"
                 }
-                if (fileURL?.range(of:"ts") != nil){
+                if (fileURL?.range(of:".ts") != nil){
                     contentType = "video/MP2T"
                 }
                 
