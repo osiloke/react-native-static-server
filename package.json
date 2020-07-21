@@ -1,33 +1,34 @@
 {
   "name": "react-native-static-server",
-  "version": "0.4.1",
+  "version": "0.5.0.dev",
   "homepage": "https://github.com/osiloke/react-native-static-server",
   "repository": "https://github.com/osiloke/react-native-static-server",
   "title": "React Native Static Server",
   "description": "HTTP static file server for React Native",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-native"
   ],
-  "author": "fchasen@gmail.com",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "16.8.6",
-    "react-native": "^0.59.10",
-    "react-native-windows": "0.57.2"
+  "author": {
+    "name": "Fred Chasen",
+    "email": "fchasen@gmail.com"
   },
-  "devDependencies": {
-    "react": "16.8.6",
-    "react-native": "^0.59.10",
-    "react-native-windows": "0.57.2"
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   },
   "files": [
     "android",
     "ios",
     "index.js",
+    "index.d.ts",
     "react-native-static-server.podspec"
   ]
 }

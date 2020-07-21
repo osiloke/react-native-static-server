@@ -9,6 +9,8 @@ A cross platform component for serving static assets with React Native.
 
 ### Installation
 
+From react-native 0.60 autolinking will take care of the link step but don't forget to run pod install
+
 `$ react-native link react-native-static-server`
 
 ## Usage
@@ -27,6 +29,10 @@ server.start().then((url) => {
 
 // Stop the server
 server.stop();
+
+// Check if native server running
+const isRunning = await server.isRunning()
+// isRunning - true/false
 ```
 
 `StaticServer` serves from the document directory (default) or takes an optional absolute path to serve from.

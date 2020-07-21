@@ -54,20 +54,19 @@ class StaticServer {
 
 		this.started = false;
 		this._origin = undefined;
+		this._handleAppStateChangeFn = this._handleAppStateChange.bind(this);
 	}
 
 	start() {
 		if( this.running ){
-			return new new Promise((resolve, reject) => {
-				resolve(this.origin);
-			});
+			return Promise.resolve(this.origin);
 		}
 
 		this.started = true;
 		this.running = true;
 
 		if (!this.keepAlive && (Platform.OS === 'android')) {
-			AppState.addEventListener('change', this._handleAppStateChange.bind(this));
+			AppState.addEventListener('change', this._handleAppStateChangeFn);
 		}
 
 		return FPStaticServer.start(this.port, this.root, this.localOnly, this.keepAlive)
@@ -87,7 +86,7 @@ class StaticServer {
 		this.stop();
 		this.started = false;
 		this._origin = undefined;
-		AppState.removeEventListener('change', this._handleAppStateChange.bind(this));
+		AppState.removeEventListener('change', this._handleAppStateChangeFn);
 	}
 
 	_handleAppStateChange(appState) {
@@ -110,6 +109,15 @@ class StaticServer {
 
 	get origin() {
 		return this._origin;
+	}
+
+	isRunning() {
+		return FPStaticServer.isRunning()
+			.then(running => {
+				this.running = running;
+
+				return this.running;
+			})
 	}
 
 }

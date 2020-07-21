@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.summary        = package['description']
   s.description    = package['description']
   s.license        = package['license']
-  s.author         = package['author']
+  s.author         = package['author']['name']
   s.homepage       = package['homepage']
   s.source         = { :git => 'https://github.com/osiloke/react-native-static-server.git' }
 
@@ -16,9 +16,8 @@ Pod::Spec.new do |s|
   s.platform       = :ios, '7.0'
 
   s.preserve_paths = 'README.md', 'package.json', 'index.js'
-  s.source_files   = 'ios/*.{h,m}', 'ios/GCDWebServer/*/*.{h,m}'
-  
-  s.static_framework = true
+  s.source_files   = 'ios/*.{h,m}'
 
   s.dependency 'React'
+  s.dependency 'GCDWebServer', '~> 3.0'
 end
