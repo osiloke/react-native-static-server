@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		780F28C8210744A9007AD776 /* FPStaticServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780F28C7210744A9007AD776 /* FPStaticServer.swift */; };
+		B3E7B58A1CC2AC0600A0062D /* FPStaticServer.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* FPStaticServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,8 @@
 		134814201AA4EA6300B7C361 /* libFPStaticServer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFPStaticServer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		780F28C6210744A8007AD776 /* FPStaticServer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FPStaticServer-Bridging-Header.h"; sourceTree = "<group>"; };
 		780F28C7210744A9007AD776 /* FPStaticServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPStaticServer.swift; sourceTree = "<group>"; };
+		B3E7B5881CC2AC0600A0062D /* FPStaticServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPStaticServer.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* FPStaticServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPStaticServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
