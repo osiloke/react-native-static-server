@@ -41,6 +41,7 @@ def flipper_post_install(installer)
 end
 target 'StaticServerExample' do
   # Pods for StaticServerExample
+  pod 'GCDWebServer', '~> 3.0', :modular_headers => true
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"

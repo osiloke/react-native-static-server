@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.platform       = :ios, '7.0'
 
   s.preserve_paths = 'README.md', 'package.json', 'index.js'
-  s.source_files   = 'ios/*.{h,m}'
+  s.source_files   = 'ios/*.{h,m,swift}'
 
   s.dependency 'React'
-  s.dependency 'GCDWebServer', '~> 3.0'
+  # s.dependency 'GCDWebServer', '~> 3.0'
 end
