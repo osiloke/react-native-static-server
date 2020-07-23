@@ -11,15 +11,12 @@
 
 
 @class RntoolsCache;
-@class RntoolsCacheingServer;
 @class RntoolsConfig;
-@class RntoolsDownloader;
 @class RntoolsFileStore;
 @class RntoolsHLSProxy;
 @class RntoolsNoSIGPIPEDialer;
 @class RntoolsProxyResult;
 @class RntoolsServer;
-@class RntoolsURLJob;
 @protocol RntoolsEventBus;
 @class RntoolsEventBus;
 
@@ -39,22 +36,6 @@
 - (NSString*)cacheKey:(NSString*)key;
 @end
 
-/**
- * CacheingServer a server used to manage cache
- */
-@interface RntoolsCacheingServer : NSObject <goSeqRefInterface> {
-}
-@property(strong, readonly) id _ref;
-
-- (instancetype)initWithRef:(id)ref;
-- (instancetype)init;
-// skipped method CacheingServer.DownloadItemTracks with unsupported parameter or return types
-
-- (void)isDownloadingItemTracks:(NSString*)itemID;
-- (void)runServer;
-- (void)stopServer;
-@end
-
 @interface RntoolsConfig : NSObject <goSeqRefInterface> {
 }
 @property(strong, readonly) id _ref;
@@ -69,32 +50,6 @@
 - (void)setCacheFolder:(NSString*)v;
 - (NSString*)port;
 - (void)setPort:(NSString*)v;
-@end
-
-/**
- * Downloader manages url downloads
- */
-@interface RntoolsDownloader : NSObject <goSeqRefInterface> {
-}
-@property(strong, readonly) id _ref;
-
-- (instancetype)initWithRef:(id)ref;
-/**
- * NewDownloader create new downloader instance
- */
-- (instancetype)init;
-/**
- * AddURLS add a list of urls to the download queue
- */
-- (void)addURLS:(NSString*)urlsString storage:(NSString*)storage segmentURLPrefix:(NSString*)segmentURLPrefix dispatcher:(id<RntoolsEventBus>)dispatcher;
-/**
- * Close stop processing urls
- */
-- (void)close;
-/**
- * ProcessURLS process urls
- */
-- (BOOL)processURLS:(NSError**)error;
 @end
 
 @interface RntoolsFileStore : NSObject <goSeqRefInterface> {
@@ -220,23 +175,12 @@ even though this is normal behaviour.
 - (void)start;
 @end
 
-@interface RntoolsURLJob : NSObject <goSeqRefInterface> {
-}
-@property(strong, readonly) id _ref;
-
-- (instancetype)initWithRef:(id)ref;
-- (instancetype)init;
-@end
-
 FOUNDATION_EXPORT const long RntoolsMetadata;
 
 @interface Rntools : NSObject
 // skipped variable Debug with unsupported type: *log.Logger
 
 // skipped variable DebugWriter with unsupported type: io.Writer
-
-+ (RntoolsDownloader*) defaultDownloader;
-+ (void) setDefaultDownloader:(RntoolsDownloader*)v;
 
 /**
  * DefaultServer is a global proxy server
@@ -265,11 +209,6 @@ FOUNDATION_EXPORT void RntoolsGetMultipleHLS(NSString* urlsString, NSString* sto
 FOUNDATION_EXPORT RntoolsConfig* RntoolsLoadConfig(NSString* path, NSError** error);
 
 /**
- * NewDownloader create new downloader instance
- */
-FOUNDATION_EXPORT RntoolsDownloader* RntoolsNewDownloader(void);
-
-/**
  * NewHLSProxy creates a new server
  */
 FOUNDATION_EXPORT RntoolsHLSProxy* RntoolsNewHLSProxy(void);
@@ -280,10 +219,6 @@ FOUNDATION_EXPORT RntoolsHLSProxy* RntoolsNewHLSProxy(void);
 FOUNDATION_EXPORT RntoolsServer* RntoolsNewServer(void);
 
 FOUNDATION_EXPORT RntoolsServer* RntoolsOnDebug(RntoolsServer* s);
-
-FOUNDATION_EXPORT void RntoolsRemoveHLS(NSString* url, NSString* storage, NSString* segmentURLPrefix, id<RntoolsEventBus> dispatcher);
-
-FOUNDATION_EXPORT void RntoolsRemoveMultipleHLS(NSString* name, NSString* urlsString, NSString* storage, NSString* segmentURLPrefix, id<RntoolsEventBus> dispatcher);
 
 /**
  * ReplaceHLSUrls replace hls urls
